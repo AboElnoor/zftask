@@ -1,0 +1,20 @@
+<div id="view-content" class="container">
+    <?php foreach ($this->data as $links): ?>
+    <br /><br />
+    <div class="jumbotron">
+        <h1><a href="<?= $links['link'] ?>" target="blank"><?= $links['title'] ?></a></h1>
+        <h5><?= 'Last Update: ', $links['dateModified'] ?></h5>
+        <h3><?= $links['description'] ?></h3>
+    </div>  
+    <div class="row ">
+        <?php foreach ($links['entries'] as $feed): ?>
+        <div class="col-xs-6 col-lg-4">
+            <h4><a href="<?= $feed['link'] ?>" target="blank"><?= substr($feed['title'], 0, 30), '..'?></a></h4>
+            <h5><?=$feed['dateModified'] ?></h5>
+            <h6><?= substr($feed['content'], 0, 50), '..' ?></h6>
+            <a class="btn btn-default" href="<?= $feed['link'] ?>"> Read More >></a>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    <?php endforeach; ?>
+</div>
